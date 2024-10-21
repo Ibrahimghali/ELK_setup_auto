@@ -49,9 +49,9 @@ cd encoded
 Run the decoder script to decode and execute the node setup scripts. Choose the appropriate trigger script based on the node you want to set up:
 
 ```bash
-./trigger_setup1.sh  # For node-1
-./trigger_setup2.sh  # For node-2
-./trigger_setup3.sh  # For node-3
+python3 node1_setup.py  # For node-1
+python3 node2_setup.py # For node-2
+python3 node3_setup.py  # For node-3
 ```
 
 The selected script will automatically decode and set up the Elasticsearch cluster for the corresponding node based on the encoded files. Ensure the IP addresses of your nodes are properly configured during the process.

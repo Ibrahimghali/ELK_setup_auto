@@ -6,23 +6,18 @@ This repository provides an automated way to set up an Elasticsearch cluster acr
 
 ```plaintext
 elasticsearch_setup_auto/
-├── encoded/
-│   ├── node1_setup.sh             # Encoded setup script for node-1
-│   ├── node2_setup.sh             # Encoded setup script for node-2
-│   ├── node3_setup.sh             # Encoded setup script for node-3
-│   ├── trigger_setup1.sh          # Encoded trigger script for node-1
-│   ├── trigger_setup2.sh          # Encoded trigger script for node-2
-│   └── trigger_setup3.sh          # Encoded trigger script for node-3
-├── LICENSE                         # License file
-├── README.md                      # Project documentation
-└── scripts/
-    ├── key.sh                     # Script for handling keys (if applicable)
-    ├── node1.sh                   # Original setup script for node-1
-    ├── node2.sh                   # Original setup script for node-2
-    ├── node3.sh                   # Original setup script for node-3
-    ├── trigger1.sh                # Original trigger script for node-1
-    ├── trigger2.sh                # Original trigger script for node-2
-    └── trigger3.sh                # Original trigger script for node-3
+├── encoded                       # Contains encoded setup and trigger 
+│   ├── node1_setup.sh            # Encoded setup script for node-1
+│   ├── node2_setup.sh            # Encoded setup script for node-2
+│   ├── node3_setup.sh            # Encoded setup script for node-3
+│   ├── trigger_setup1.sh         # Encoded trigger script for node-1
+│   ├── trigger_setup2.sh         # Encoded trigger script for node-2
+│   └── trigger_setup3.sh         # Encoded trigger script for node-3
+├── LICENSE                       # License file
+├── README.md                     # Project documentation
+└── .gitignore                    # Git ignore file
+
+
 ```
 
 ## How to Use
@@ -79,5 +74,3 @@ This will give you details about the health and status of your Elasticsearch clu
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
----

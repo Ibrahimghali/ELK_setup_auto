@@ -72,6 +72,14 @@ curl -X GET "localhost:9200/_cluster/health?pretty"
 
 This will give you details about the health and status of your Elasticsearch cluster.
 
+### 5. Restart Elasticsearch if Nodes Are Not Running
+
+If you find that not all three nodes are running, you can restart the Elasticsearch service on the affected nodes using the following command:
+
+```bash
+sudo systemctl restart elasticsearch.service
+```
+
 ## Additional Notes
 
 - The original setup scripts are not included in the repository for security and simplicity reasons. They can be found in the `scripts/` directory.

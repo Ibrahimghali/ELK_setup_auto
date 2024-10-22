@@ -64,15 +64,39 @@ The selected script will automatically decode and set up the Elasticsearch clust
 
 ### 4. Verify the Cluster
 
-Once the scripts have been executed, you can check the cluster status using the following command on any of the nodes:
+#### 4.1. Check the Cluster Health
+
+After executing the setup scripts, verify the cluster's health by running the following command on any node:
 
 ```bash
 curl -X GET "localhost:9200/_cluster/health?pretty"
 ```
 
-This will give you details about the health and status of your Elasticsearch cluster.
+This command provides details about the health and status of your Elasticsearch cluster.
+
+#### 4.2. Check Node Information
+
+To get detailed information about the nodes in your Elasticsearch cluster, use the following command:
+
+```bash
+curl -X GET "localhost:9200/_cat/nodes?v"
+```
+
+This command displays a tabular view of the nodes, including their IP addresses, roles, and other relevant details.
 
 ### 5. Restart Elasticsearch if Nodes Are Not Running
+
+If you find that not all nodes are running, restart the Elasticsearch service on the affected nodes using the following command:
+
+```bash
+sudo systemctl restart elasticsearch.service
+```
+
+If you find that not all three nodes are running, you can restart the Elasticsearch service on the affected nodes using the following command:
+
+```bash
+sudo systemctl restart elasticsearch.service
+```
 
 If you find that not all three nodes are running, you can restart the Elasticsearch service on the affected nodes using the following command:
 
@@ -82,7 +106,6 @@ sudo systemctl restart elasticsearch.service
 
 ## Additional Notes
 
-- The original setup scripts are not included in the repository for security and simplicity reasons. They can be found in the `scripts/` directory.
 - Make sure to review the [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/index.html) for detailed configuration options and best practices.
 
 ## License

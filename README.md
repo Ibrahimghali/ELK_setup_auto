@@ -6,16 +6,16 @@ This repository provides an automated way to set up an Elasticsearch cluster acr
 
 ```plaintext
 elasticsearch_setup_auto/
-├── encoded                       # Contains encoded setup and trigger 
-│   ├── node1_setup.sh            # Encoded setup script for node-1
-│   ├── node2_setup.sh            # Encoded setup script for node-2
-│   ├── node3_setup.sh            # Encoded setup script for node-3
-│   ├── trigger_setup1.sh         # Encoded trigger script for node-1
-│   ├── trigger_setup2.sh         # Encoded trigger script for node-2
-│   └── trigger_setup3.sh         # Encoded trigger script for node-3
-├── LICENSE                       # License file
-├── README.md                     # Project documentation
-└── .gitignore                    # Git ignore file
+├── LICENSE
+├── README.md
+├── src
+│   ├── node1_setup.py
+│   ├── node2_setup.py
+│   └── node3_setup.py
+└── trigger
+    ├── node1_runner.sh
+    ├── node2_runner.sh
+    └── node3_runner.sh
 
 
 ```
@@ -38,20 +38,20 @@ Navigate to the project directory:
 cd elasticsearch-setup
 ```
 
-### 2. Run the Decoder Script
+### 2. Run the trigger script
 
-Navigate to the `encoded/` directory, which contains the encoded setup scripts:
+Navigate to the `trigger/` directory, which contains the encoded setup scripts:
 
 ```bash
-cd encoded
+cd trigger
 ```
 
-Run the decoder script to decode and execute the node setup scripts. Choose the appropriate trigger script based on the node you want to set up:
+Run the trigger script to decode and execute the node setup scripts. Choose the appropriate trigger script based on the node you want to set up:
 
 ```bash
-python3 node1_setup.py  # For node-1
-python3 node2_setup.py # For node-2
-python3 node3_setup.py  # For node-3
+bash node1_runner.sh  # For node-1
+bash node2_runner.sh # For node-2
+bash node3_runner.sh # For node-3
 ```
 
 The selected script will automatically decode and set up the Elasticsearch cluster for the corresponding node based on the encoded files. Ensure the IP addresses of your nodes are properly configured during the process.

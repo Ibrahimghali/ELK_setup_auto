@@ -16,8 +16,6 @@ elasticsearch_setup_auto/
     ├── node1_runner.sh
     ├── node2_runner.sh
     └── node3_runner.sh
-
-
 ```
 
 ## How to Use
@@ -38,7 +36,15 @@ Navigate to the project directory:
 cd elasticsearch-setup
 ```
 
-### 2. Run the trigger script
+### 2. Know Your Node IP Addresses
+
+Before running the setup scripts, ensure you know the IP addresses of the three nodes you will be configuring. This is crucial for the proper setup and communication between the nodes.
+
+```bash
+ip a
+```
+
+### 3. Run the Trigger Script
 
 Navigate to the `trigger/` directory, which contains the encoded setup scripts:
 
@@ -56,7 +62,7 @@ bash node3_runner.sh # For node-3
 
 The selected script will automatically decode and set up the Elasticsearch cluster for the corresponding node based on the encoded files. Ensure the IP addresses of your nodes are properly configured during the process.
 
-### 3. Verify the Cluster
+### 4. Verify the Cluster
 
 Once the scripts have been executed, you can check the cluster status using the following command on any of the nodes:
 

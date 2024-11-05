@@ -24,7 +24,7 @@ Follow the steps below to set up your Elasticsearch cluster.
 
 ### 1. Clone the Repository
 
-First, clone the repository to your local machine:
+First, clone the repository to your local machines (3 nodes):
 
 ```bash
 git clone https://github.com/Ibrahimghali/elasticsearch-setup.git

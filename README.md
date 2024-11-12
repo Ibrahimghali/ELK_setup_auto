@@ -1,4 +1,4 @@
-# Elasticsearch Cluster Setup Automation
+# ELK Setup Automation
 
 This repository provides an automated way to set up an Elasticsearch cluster across multiple nodes using obfuscated setup scripts. The project includes encoded scripts for node configuration and multiple trigger scripts to execute them.
 

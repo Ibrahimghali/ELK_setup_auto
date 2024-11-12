@@ -9,10 +9,12 @@ elasticsearch_setup_auto/
 ├── LICENSE
 ├── README.md
 ├── src
+│   ├── kibana_setup.py
 │   ├── node1_setup.py
 │   ├── node2_setup.py
 │   └── node3_setup.py
 └── trigger
+    ├── kibana_runner.sh
     ├── node1_runner.sh
     ├── node2_runner.sh
     └── node3_runner.sh
@@ -55,9 +57,10 @@ cd trigger
 Run the trigger script to decode and execute the node setup scripts. Choose the appropriate trigger script based on the node you want to set up:
 
 ```bash
-bash node1_runner.sh  # For node-1
-bash node2_runner.sh # For node-2
-bash node3_runner.sh # For node-3
+bash node1_runner.sh  # For node-1 (elasticsearch)
+bash node2_runner.sh # For node-2 (elasticsearch)
+bash node3_runner.sh # For node-3 (elasticsearch)
+bash kibana_runner.sh # For Kibana node
 ```
 
 The selected script will automatically decode and set up the Elasticsearch cluster for the corresponding node based on the encoded files. Ensure the IP addresses of your nodes are properly configured during the process.
@@ -103,6 +106,46 @@ If you find that not all three nodes are running, you can restart the Elasticsea
 ```bash
 sudo systemctl restart elasticsearch.service
 ```
+
+To check the status and verify Kibana is properly running, you can add the following note to the README file:
+
+### 6. Verify Kibana
+
+After setting up Kibana and Elasticsearch, you can verify Kibana's status by checking if the Kibana service is running and then accessing its web interface.
+
+#### 6.1. Check Kibana Service Status
+
+Run the following command on the machine where Kibana is installed to check if the service is active:
+
+```bash
+sudo systemctl status kibana
+```
+
+If Kibana is running, you should see output indicating that the service is active (running).
+
+#### 6.2. Access Kibana Web Interface
+
+Kibana provides a web-based interface that you can access using a web browser. By default, Kibana runs on port 5601. Open a browser and go to the following URL:
+
+```bash
+http://<KIBANA_NODE_IP>:5601
+```
+
+Replace `<KIBANA_NODE_IP>` with the IP address of the node where Kibana is installed. You should be able to see the Kibana dashboard.
+
+#### 6.3. Verify Kibana's Connection to Elasticsearch
+
+Once you're in the Kibana web interface, you can check if Kibana is properly connected to Elasticsearch by navigating to **Stack Monitoring** or **Dev Tools**. In **Dev Tools**, run the following command:
+
+```bash
+GET _cat/health?v
+```
+
+This will return the health of your Elasticsearch cluster, and if Kibana is properly connected, it should display the cluster's health status.
+
+## Logs
+
+The setup scripts generate logs for each step of the process, providing details about success or failure. These logs help track the progress and troubleshoot any issues during setup.
 
 ## Additional Notes
 

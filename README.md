@@ -10,11 +10,13 @@ elasticsearch_setup_auto/
 ├── README.md
 ├── src
 │   ├── kibana_setup.py
+│   ├── logstash_setup.py
 │   ├── node1_setup.py
 │   ├── node2_setup.py
 │   └── node3_setup.py
 └── trigger
     ├── kibana_runner.sh
+    ├── logstash_runner.sh
     ├── node1_runner.sh
     ├── node2_runner.sh
     └── node3_runner.sh

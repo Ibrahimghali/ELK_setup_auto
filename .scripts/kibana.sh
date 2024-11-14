@@ -74,12 +74,23 @@ sudo cp $KIBANA_YML ${KIBANA_YML}.bak
 
 # Update server settings
 log "Configuring Kibana server settings."
-sudo sed -i 's/#server.host: "localhost"/server.host: "0.0.0.0"/' $KIBANA_YML
-sudo sed -i 's/#server.port: 5601/server.port: 5601/' $KIBANA_YML
+sudo tee -a $KIBANA_YML <<EOL
+# Kibana server settings
+server.host: "0.0.0.0"
+server.port: 5601
+EOL
 
 # Configure Elasticsearch hosts in Kibana
 log "Configuring Elasticsearch hosts in kibana.yml."
-sudo sed -i "s|#elasticsearch.hosts: \[\"http://localhost:9200\"\]|elasticsearch.hosts: [\"http://$node1_ip:9200\", \"http://$node2_ip:9200\", \"http://$node3_ip:9200\"]|" $KIBANA_YML
+sudo tee -a $KIBANA_YML <<EOL
+# Elasticsearch hosts configuration
+elasticsearch.hosts: ["http://$node1_ip:9200", "http://$node2_ip:9200", "http://$node3_ip:9200"]
+
+# Optional: Configure Elasticsearch authentication if needed
+# Uncomment and modify the following lines if you have authentication
+# sudo sed -i 's|#elasticsearch.username: "kibana_system"|elasticsearch.username: "your_username"|' $KIBANA_YML
+# sudo sed -i 's|#elasticsearch.password: "pass"|elasticsearch.password: "your_password"|' $KIBANA_YML
+EOL
 
 # Set monitoring.ui.ccs.enabled to false
 log "Disabling monitoring.ui.ccs.enabled."

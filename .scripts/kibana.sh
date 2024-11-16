@@ -76,15 +76,15 @@ sudo cp $KIBANA_YML ${KIBANA_YML}.bak
 log "Configuring Kibana server settings."
 sudo tee -a $KIBANA_YML <<EOL
 # Kibana server settings
-server.host: "0.0.0.0"
 server.port: 5601
+server.host: "0.0.0.0"
 EOL
 
 # Configure Elasticsearch hosts in Kibana
 log "Configuring Elasticsearch hosts in kibana.yml."
 sudo tee -a $KIBANA_YML <<EOL
 # Elasticsearch hosts configuration
-elasticsearch.hosts: ["http://$node1_ip:9200", "http://$node2_ip:9200", "http://$node3_ip:9200"]
+elasticsearch.hosts: ["http://$node1_ip:9200","http://$node2_ip:9200","http://$node3_ip:9200"]
 
 # Optional: Configure Elasticsearch authentication if needed
 # Uncomment and modify the following lines if you have authentication

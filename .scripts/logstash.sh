@@ -51,7 +51,6 @@ LOGSTASH_PIPELINE_CONF="/etc/logstash/conf.d/logstash_pipeline.conf"
 echo "$(date '+%Y-%m-%d %H:%M:%S') - Creating Logstash pipeline configuration."
 sudo tee $LOGSTASH_PIPELINE_CONF > /dev/null <<EOF
 input {
-  stdin {}
 }
 
 filter {
@@ -67,9 +66,6 @@ output {
     # password => "changeme"
   }
   
-  stdout { 
-    codec => rubydebug 
-  }
 }
 EOF
 
